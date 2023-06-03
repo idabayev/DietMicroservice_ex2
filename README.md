@@ -24,7 +24,10 @@ docker run -ti -p %FORWARDING_PORT%:8000 meals_api_s_i_m
 We do need to store the data in a MongoDB server. We should check if we can do it from the c# code of the meals and how. 
 
 # Diet Part
-Write a diet microservice that runs GET commands from the meals API
+Write a diet microservice that gets GET commands from the meals API, and returns the diet plans that exists in its DB.
+It only need to support valid inputs. POST commands gets two possible answers:
+- Diet Successfully created
+- Diet exist
 
 # Reverse Proxy
 Which will recieve only GET requests for dishes, meals, and diet; This server will route the requests to the relevant service

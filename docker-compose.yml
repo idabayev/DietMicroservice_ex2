@@ -4,8 +4,14 @@ services:
     image: mongo
     ports:
       - 27017:27017
-    estart: always
-
+    restart: always
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    restart: always
+  
   meals:
     build: ./meals
     ports:
@@ -18,8 +24,4 @@ services:
       - 5002:80
     restart: always
 
-  nginx:
-    build: ./nginx
-    ports:
-      - 80:80
-    restart: always
+  

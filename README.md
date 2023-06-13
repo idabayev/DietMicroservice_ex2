@@ -1,5 +1,10 @@
 # DietMicroservice_ex2
 Ex 2 in Cloud Computing course
+# To RUN THE EXERCISE
+docker-compose up
+
+and if you want to rebuild 
+docker-compose up --build
 
 # Meals Microservice
 For the Meals part, in Ex1 we used this batch to run the exercise:

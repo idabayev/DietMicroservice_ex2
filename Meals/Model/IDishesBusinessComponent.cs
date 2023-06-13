@@ -5,7 +5,8 @@ namespace Ex1_ApiForMeals
 {
     public interface IDishesBusinessComponent
     {
-        SortedDictionary<int, DishDto> GetAllDishes();
+        //SortedDictionary<int, DishDto> GetAllDishes();
+        List<DishDto> GetAllDishes();
         DishDto GetDishById(int id);
         DishDto GetDishByName(string name);
         

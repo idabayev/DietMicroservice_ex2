@@ -23,8 +23,14 @@ namespace Ex1_ApiForMeals.Controllers
             _dishesBusinessComponent = new DishesBusinessComponent();
         }
 
+        //[HttpGet]
+        //public SortedDictionary<int, DishDto> Get()
+        //{
+        //    return _dishesBusinessComponent.GetAllDishes();
+        //}
+
         [HttpGet]
-        public SortedDictionary<int, DishDto> Get()
+        public List<DishDto> Get()
         {
             return _dishesBusinessComponent.GetAllDishes();
         }

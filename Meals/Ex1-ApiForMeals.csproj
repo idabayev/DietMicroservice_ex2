@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Docker.DotNet" Version="3.125.14" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
   </ItemGroup>
 
 </Project>

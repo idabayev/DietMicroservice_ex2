@@ -5,6 +5,8 @@ namespace Ex1_ApiForMeals
 {
     public class Meal : IMeal
     {
+        [JsonIgnore]
+        public string _id { get; set; }
         public Meal(string name)
         {
             Name = name;

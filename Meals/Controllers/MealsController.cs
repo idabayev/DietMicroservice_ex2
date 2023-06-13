@@ -21,8 +21,14 @@ namespace Ex1_ApiForMeals.Controllers
             _mealsBusinessComponent = new MealsBusinessComponent();
         }
 
+        //[HttpGet]
+        //public SortedDictionary<int, MealDto> Get()
+        //{
+        //    return _mealsBusinessComponent.GetAllMeals();
+        //}
+
         [HttpGet]
-        public SortedDictionary<int, MealDto> Get()
+        public List<MealDto> Get()
         {
             return _mealsBusinessComponent.GetAllMeals();
         }

@@ -4,6 +4,7 @@ namespace Ex1_ApiForMeals
 {
     public interface IMeal
     {
+        public string _id { get; set; }
         public string Name { get; set; }
         public int ID { get; set; }
         public int? Appetizer { get; set; }

@@ -5,6 +5,9 @@ namespace Ex1_ApiForMeals
 {
     public class Dish : IDish
     {
+        [JsonIgnore]
+        public string _id { get; set; }
+
         [JsonPropertyName("name")]
         public string Name { get; set; }
         

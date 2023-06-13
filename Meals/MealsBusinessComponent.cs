@@ -17,15 +17,26 @@ namespace Ex1_ApiForMeals
             _mapper = new Mapper();
         }
 
-        public SortedDictionary<int, MealDto> GetAllMeals()
+        //public SortedDictionary<int, MealDto> GetAllMeals()
+        //{
+        //    var meals = _dbService.GetAllMealsFromDb();
+        //    var mealsDtoDictionary = new SortedDictionary<int, MealDto>();
+        //    foreach (var keyValuePair in meals)
+        //    {
+        //        mealsDtoDictionary.Add(keyValuePair.Key, _mapper.ConvertToMealDto(keyValuePair.Value));
+        //    }
+        //    return mealsDtoDictionary;
+        //}
+
+        public List<MealDto> GetAllMeals()
         {
             var meals = _dbService.GetAllMealsFromDb();
-            var mealsDtoDictionary = new SortedDictionary<int, MealDto>();
-            foreach (var keyValuePair in meals)
+            var mealsDtoList = new List<MealDto>();
+            foreach (var meal in meals)
             {
-                mealsDtoDictionary.Add(keyValuePair.Key, _mapper.ConvertToMealDto(keyValuePair.Value));
+                mealsDtoList.Add(_mapper.ConvertToMealDto(meal));
             }
-            return mealsDtoDictionary;
+            return mealsDtoList;
         }
 
         public int AddMealToDb(MealRoutingObject mealObject)
@@ -51,6 +62,8 @@ namespace Ex1_ApiForMeals
             }
 
             meal.ID = GenerateMealId();
+            meal._id = meal.ID.ToString();
+
             _dbService.SaveMeal(meal);
             return meal.ID;
         }
@@ -78,6 +91,7 @@ namespace Ex1_ApiForMeals
             }
 
             meal.ID = id;
+            meal._id = id.ToString();
             return _dbService.UpdateMealById(id, meal);
         }
 

@@ -6,7 +6,8 @@ namespace Ex1_ApiForMeals
     public interface IMealsBusinessComponent
     {
         int AddMealToDb(MealRoutingObject meal);
-        SortedDictionary<int, MealDto> GetAllMeals();
+        //SortedDictionary<int, MealDto> GetAllMeals();
+        List<MealDto> GetAllMeals();
         MealDto GetMealById(int id);
         MealDto GetMealByName(string name);
         int DeleteMealById(int id);

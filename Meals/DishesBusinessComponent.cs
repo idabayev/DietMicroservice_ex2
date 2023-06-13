@@ -68,6 +68,7 @@ namespace Ex1_ApiForMeals
                 var dishId = GenerateDishId();
                 dish.Name = name; // override returned name due to differenct in capital letters
                 dish.ID = dishId;
+                dish._id = dishId.ToString();
 
                 foreach (var apiDish in dishes.Result)
                 {
@@ -109,15 +110,26 @@ namespace Ex1_ApiForMeals
             return DeleteDishById(dish.ID);
         }
 
-        public SortedDictionary<int, DishDto> GetAllDishes()
+        //public SortedDictionary<int, DishDto> GetAllDishes()
+        //{
+        //    var dishes = _dbService.GetAllDishesFromDb();
+        //    var dishesDtoDictionary = new SortedDictionary<int, DishDto>();
+        //    foreach (var keyValuePair in dishes)
+        //    {
+        //        dishesDtoDictionary.Add(keyValuePair.Key, _mapper.ConvertToDishDto(keyValuePair.Value));
+        //    }
+        //    return dishesDtoDictionary;
+        //}
+
+        public List<DishDto> GetAllDishes()
         {
             var dishes = _dbService.GetAllDishesFromDb();
-            var dishesDtoDictionary = new SortedDictionary<int, DishDto>();
-            foreach (var keyValuePair in dishes)
+            var dishesDtoList = new List<DishDto>();
+            foreach (var dish in dishes)
             {
-                dishesDtoDictionary.Add(keyValuePair.Key, _mapper.ConvertToDishDto(keyValuePair.Value));
+                dishesDtoList.Add(_mapper.ConvertToDishDto(dish));
             }
-            return dishesDtoDictionary;
+            return dishesDtoList;
         }
 
         public DishDto GetDishById(int id)

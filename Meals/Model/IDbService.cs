@@ -5,8 +5,11 @@ namespace Ex1_ApiForMeals
 {
     public interface IDbService
     {
-        SortedDictionary<int, IDish> GetAllDishesFromDb();
-        SortedDictionary<int, IMeal> GetAllMealsFromDb();
+        //SortedDictionary<int, Dish> GetAllDishesFromDb();
+        List<Dish> GetAllDishesFromDb();
+
+        //SortedDictionary<int, Meal> GetAllMealsFromDb();
+        List<Meal> GetAllMealsFromDb();
         int GetAvailableDishId();
         void SaveDish(Dish dish);
         int DeleteDishById(int id);

@@ -16,12 +16,16 @@ services:
     build: ./meals
     ports:
       - 5001:80
+    expose:
+      - 80
     restart: always
 
   diet:
     build: ./diet
     ports:
       - 5002:80
+    expose:
+      - 80
     restart: always
 
   

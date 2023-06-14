@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_pymongo import PyMongo, errors
+from flask_pymongo import PyMongo
 from bson.json_util import dumps
 
 app = Flask(__name__)
@@ -25,13 +25,13 @@ def add_diet():
 @app.route('/diets', methods=['GET'])
 def get_diets():
     diets = []
-    for diet in mongo.db.diets.find():
+    for diet in mongo.db.diets.find({}, {'_id': 0}):  # Here, we exclude the "_id" field.
         diets.append(diet)
     return dumps(diets), 200
 
 @app.route('/diet/<name>', methods=['GET'])
 def get_diet(name):
-    diet = mongo.db.diets.find_one({'name': name})
+    diet = mongo.db.diets.find_one({'name': name}, {'_id': 0})  # Here too, we exclude the "_id" field.
     if diet is None:
         return jsonify({'error': 'Diet not found'}), 404
     return dumps(diet), 200

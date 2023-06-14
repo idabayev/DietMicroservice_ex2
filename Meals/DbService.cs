@@ -19,7 +19,7 @@ namespace Ex1_ApiForMeals
         public DbService()
         {
             // Connection string for the MongoDB container
-            string connectionString = "mongodb://mongodb:27017/dishes/";
+            string connectionString = "mongodb://mongodb:27017";
 
             // Create a MongoDB client
             var client = new MongoClient(connectionString);
